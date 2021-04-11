@@ -5,8 +5,13 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
+@app.get('/')
+def index():
+    return {'index': 'Index Page'}
+
+
 @app.get('/{value}')
-def get_settings(value: int):
+def counter_endpoint(value: int):
     return {'value': value, 'message': 'message'}
 
 
